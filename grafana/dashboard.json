@@ -1,0 +1,2069 @@
+{
+  "apiVersion": "dashboard.grafana.app/v2",
+  "kind": "Dashboard",
+  "metadata": {
+    "name": "adx2p85",
+    "namespace": "default",
+    "uid": "XpIKHXsP0oHFXmEeXzzoLRXxBhmoveCBOXYPOYbGjyAX",
+    "resourceVersion": "1775385148971994",
+    "generation": 109,
+    "creationTimestamp": "2026-02-19T12:40:57Z",
+    "labels": {
+      "grafana.app/deprecatedInternalID": "1"
+    },
+    "annotations": {
+      "grafana.app/createdBy": "user:dfdjed95qqfpca",
+      "grafana.app/saved-from-ui": "Grafana v12.4.1 (46a02dc12a)",
+      "grafana.app/updatedBy": "user:dfdjed95qqfpca",
+      "grafana.app/updatedTimestamp": "2026-04-05T10:32:28Z",
+      "grafana.app/folder": ""
+    }
+  },
+  "spec": {
+    "annotations": [
+      {
+        "kind": "AnnotationQuery",
+        "spec": {
+          "query": {
+            "kind": "DataQuery",
+            "group": "grafana",
+            "version": "v0",
+            "datasource": {
+              "name": "-- Grafana --"
+            },
+            "spec": {}
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "builtIn": true,
+          "legacyOptions": {
+            "type": "dashboard"
+          }
+        }
+      }
+    ],
+    "cursorSync": "Off",
+    "editable": true,
+    "elements": {
+      "panel-1": {
+        "kind": "Panel",
+        "spec": {
+          "id": 1,
+          "title": "% Uso de CPU por Nucleo",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "time_series",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  cpu_core_1 AS \"Carga del Nucleo 1 (%)\",\r\n  cpu_core_2 AS \"Carga del Nucleo 2 (%)\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        },
+                        "table": "registro_metricas"
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "percent",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 15,
+                    "gradientMode": "opacity",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "smooth",
+                    "lineWidth": 3,
+                    "pointSize": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-11": {
+        "kind": "Panel",
+        "spec": {
+          "id": 11,
+          "title": "",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT \r\n  UNIX_TIMESTAMP(timestamp) AS \"time\", \r\n  disco_usado_bytes AS \"Ocupado\" \r\nFROM registro_metricas \r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp DESC \r\nLIMIT 1",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "colorMode": "value",
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "value",
+                "wideLayout": true
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "bytes",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 7365000000,
+                        "color": "yellow"
+                      },
+                      {
+                        "value": 9470000000,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "fieldMinMax": false
+                },
+                "overrides": []
+              }
+            }
+          },
+          "transparent": true
+        }
+      },
+      "panel-12": {
+        "kind": "Panel",
+        "spec": {
+          "id": 12,
+          "title": "Árbol de Procesos usando CPU",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT \r\n  -- CAST a CHAR: Los motores gráficos de JS necesitan que los identificadores \r\n  -- sean Strings para no confundirlos al hacer las conexiones.\r\n  CAST(pid AS CHAR) AS id,\r\n  \r\n  -- Extraemos el Parent PID (quién creó este proceso) para saber \r\n  -- de qué rama colgarlo.\r\n  CAST(ppid AS CHAR) AS parent_id,\r\n  \r\n  -- El nombre del proceso que mostraremos en la etiqueta\r\n  nombre AS name,\r\n  \r\n  -- Redondeamos a 2 decimales para que el panel no colapse con números infinitos\r\n  CAST(cpu_uso AS DECIMAL(10,2)) AS value\r\n  \r\nFROM arbol_procesos\r\n\r\n-- FILTRO INTELIGENTE: \r\n-- 1. 'cpu_uso > 0.0': Ocultamos los cientos de procesos inactivos para no saturar la pantalla.\r\n-- 2. 'OR pid = 1': Obligamos a traer siempre a 'systemd' (La Raíz de Linux). \r\n--    Si no traemos la raíz, los procesos activos se quedarían flotando huérfanos sin conectarse a nada.\r\nWHERE cpu_uso > 0.0 OR pid = 1",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        },
+                        "table": "arbol_procesos"
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "volkovlabs-echarts-panel",
+            "version": "7.2.4",
+            "spec": {
+              "options": {
+                "baidu": {
+                  "callback": "bmapReady",
+                  "key": ""
+                },
+                "editor": {
+                  "format": "auto"
+                },
+                "editorMode": "visual",
+                "gaode": {
+                  "key": "",
+                  "plugin": "AMap.Scale,AMap.ToolBar"
+                },
+                "getOption": "const series = context.panel.data.series.map((s) => {\n  const sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer || s.fields.find((f) => f.type === 'time').values;\n  \n  return {\n    name: s.refId,\n    type: 'line',\n    showSymbol: false,\n    areaStyle: {\n      opacity: 0.1,\n    },\n    lineStyle: {\n      width: 1,\n    },\n    data: sData.map((d, i) => [sTime[i], d.toFixed(2)]),\n  };\n});\n\n/**\n * Enable Data Zoom by default\n */\nsetTimeout(() => context.panel.chart.dispatchAction({\n  type: 'takeGlobalCursor',\n  key: 'dataZoomSelect',\n  dataZoomSelectActive: true,\n}), 500);\n\n/**\n * Update Time Range on Zoom\n */\ncontext.panel.chart.on('datazoom', function (params) {\n  const startValue = params.batch[0]?.startValue;\n  const endValue = params.batch[0]?.endValue;\n  locationService.partial({ from: startValue, to: endValue });\n});\n\nreturn {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    data: context.panel.data.series.map((s) => s.refId),\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  toolbox: {\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none',\n        icon: {\n          zoom: 'path://',\n          back: 'path://',\n        },\n      },\n      saveAsImage: {},\n    }\n  },\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n  grid: {\n    left: '2%',\n    right: '2%',\n    top: '2%',\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};",
+                "google": {
+                  "callback": "gmapReady",
+                  "key": ""
+                },
+                "map": "none",
+                "renderer": "canvas",
+                "themeEditor": {
+                  "config": "{}",
+                  "name": "default"
+                },
+                "visualEditor": {
+                  "code": "// ==========================================================\n// 1. MECANISMO DE ESPERA Y CONTROL DE ERRORES\n// ==========================================================\n// Evita que el panel muestre un error en rojo si Grafana intenta\n// dibujar el gráfico antes de recibir la respuesta de MySQL.\nif (!context.panel.data.series || context.panel.data.series.length === 0) {\n  return { title: { text: 'Esperando datos de procesos...' } };\n}\n\n// ==========================================================\n// 2. EXTRACCIÓN DE DATOS BRUTOS DESDE GRAFANA\n// ==========================================================\n// Buscamos las columnas generadas por nuestro SQL y sacamos los valores en arrays\nconst fields = context.panel.data.series[0].fields;\nconst ids = fields.find(f => f.name === 'id').values;\nconst parent_ids = fields.find(f => f.name === 'parent_id').values;\nconst names = fields.find(f => f.name === 'name').values;\nconst cpus = fields.find(f => f.name === 'value').values;\n\nlet nodes = []; // Lista donde guardaremos los procesos\nlet links = []; // Lista donde guardaremos las relaciones\n\n// ==========================================================\n// 3. CONSTRUCCIÓN DEL GRAFO\n// ==========================================================\nfor (let i = 0; i < ids.length; i++) {\n  let id = String(ids[i]);\n  let ppid = String(parent_ids[i]);\n  let cpu = parseFloat(cpus[i]) || 0; // Si el valor es nulo, le ponemos 0 por seguridad\n  let name = names[i];\n\n  // --------------------------------------------------------\n  // SEMÁFORO DE CONSUMO\n  // --------------------------------------------------------\n  // Por defecto, un proceso es Verde (Consumo normal / saludable)\n  let nodeColor = '#32D74B';\n  let borderColor = '#28A745';\n\n  if (cpu > 40) {\n    // Si consume más del 40%, cambia a ROJO ALERTA\n    nodeColor = '#FF453A';\n    borderColor = '#FF3B30';\n  } else if (cpu > 15) {\n    // Si consume más del 15%, cambia a AMARILLO PRECAUCIÓN\n    nodeColor = '#FFD60A';\n    borderColor = '#FFCC00';\n  }\n\n  // --------------------------------------------------------\n  // TAMAÑO DINÁMICO\n  // --------------------------------------------------------\n  // Base 35px: Asegura que los procesos con 0% de CPU sigan siendo visibles.\n  // cpu * 1.5: La bola crece proporcionalmente al consumo de CPU.\n  let nodeSize = 35 + (cpu * 1.5);\n\n  // Ponemos un límite de 120px para que un proceso al 100% no tape todo el panel\n  if (nodeSize > 120) nodeSize = 120;\n\n  // --------------------------------------------------------\n  // INYECCIÓN DEL NODO\n  // --------------------------------------------------------\n  nodes.push({\n    id: id,\n    name: name,\n    value: cpu.toFixed(2), // Guardamos el valor redondeado para mostrarlo luego\n    symbolSize: nodeSize,\n    itemStyle: {\n      color: nodeColor,\n      borderColor: borderColor,\n      borderWidth: 2,\n      shadowBlur: 15, // Efecto de iluminación/volumen 3D\n      shadowColor: 'rgba(0,0,0,0.5)'\n    },\n    label: {\n      show: true,\n      position: 'bottom', // El nombre se escribe debajo de la bola, no la tapa\n      distance: 5,        // Separación entre bola y texto\n      color: '#ffffff',\n      fontWeight: 'bold',\n      formatter: '{b}\\n{c} %', // {b}=Nombre, {c}=Valor(CPU). El \\n crea dos líneas.\n      textBorderColor: '#000000', // Borde negro al texto para que se lea siempre\n      textBorderWidth: 3,\n      lineHeight: 16\n    }\n  });\n\n  // --------------------------------------------------------\n  // CREACIÓN DE LAS CONEXIONES \n  // --------------------------------------------------------\n  // El PID 1 (systemd) es el origen de todos, no tiene un padre visible.\n  // Si NO es el proceso 1, le decimos a ECharts que dibuje una flecha \n  // desde el Padre (source) hacia este proceso Hijo (target).\n  if (id !== \"1\") {\n    links.push({\n      source: ppid,\n      target: id\n    });\n  }\n}\n\n// ==========================================================\n// 4. CONFIGURACIÓN DEL MOTOR DE FÍSICAS\n// ==========================================================\nreturn {\n  backgroundColor: 'transparent',\n\n  // Ventana flotante interactiva al pasar el ratón por un proceso\n  tooltip: {\n    backgroundColor: 'rgba(20, 22, 25, 0.9)', // Fondo oscuro profesional\n    borderColor: '#444',\n    textStyle: { color: '#fff' },\n    formatter: function (params) {\n      if (params.dataType === 'node') {\n        // Código HTML inyectado para mostrar el Nombre, PID y la CPU teñida del color del semáforo\n        return `<b>${params.data.name}</b><br/>PID: ${params.data.id}<br/>CPU: <span style=\"color:${params.data.itemStyle.color}; font-weight:bold;\">${params.data.value}%</span>`;\n      }\n      return '';\n    }\n  },\n\n  series: [\n    {\n      type: 'graph',\n\n      // 'force' enciende el motor de colisiones y gravedades\n      layout: 'force',\n      force: {\n        repulsion: 350,        // Los procesos se comportan como imanes repeliéndose para no solaparse\n        edgeLength: [60, 130], // La conexión actúa como una goma elástica que mide entre 60 y 130 píxeles\n        gravity: 0.05          // Gravedad débil hacia el centro para que el árbol no se salga de la pantalla\n      },\n\n      roam: true,       // Permite al usuario hacer scroll (zoom) y mover el mapa general\n      draggable: true,  // Permite arrastrar bolas individuales para reorganizar el árbol\n\n      // Dibujamos una punta de flecha ('arrow') al final de cada conexión\n      edgeSymbol: ['none', 'arrow'],\n      edgeSymbolSize: [0, 10],\n\n      data: nodes, // Cargamos la lista de bolas\n      links: links, // Cargamos la lista de conexiones\n\n      // Estilo de las ramas: gris, grosor 1.5 y ligeramente curvadas para darle un toque orgánico\n      lineStyle: {\n        color: '#8e94a1',\n        width: 1.5,\n        curveness: 0.2,\n        opacity: 0.7\n      }\n    }\n  ]\n};",
+                  "dataset": [],
+                  "series": []
+                }
+              },
+              "fieldConfig": {
+                "defaults": {},
+                "overrides": []
+              }
+            }
+          },
+          "transparent": true
+        }
+      },
+      "panel-13": {
+        "kind": "Panel",
+        "spec": {
+          "id": 13,
+          "title": "Desglose tiempo respuesta HTTPS",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT \r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  transfer_ms AS \"5. Transferencia de Datos\",\r\n  server_ms AS \"4. Procesamiento Servidor (TTFB)\",\r\n  tls_ms AS \"3. Encriptación (TLS)\",\r\n  tcp_ms AS \"2. Conexión Red (TCP)\",\r\n  dns_ms AS \"1. Resolución DNS\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "ms",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 80,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "smooth",
+                    "lineWidth": 2,
+                    "pointSize": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "normal"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-14": {
+        "kind": "Panel",
+        "spec": {
+          "id": 14,
+          "title": "Seguridad de Acceso y Disponibilidad",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT \r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  sesiones_ssh AS \"Sesiones SSH Activas\",\r\n  uptime_horas AS \"Uptime (Horas)\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "colorMode": "value",
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "fixed",
+                    "fixedColor": "green"
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-15": {
+        "kind": "Panel",
+        "spec": {
+          "id": 15,
+          "title": "Topología de Red Local (ARP)",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT \r\n  /*\r\n  Inventamos un nodo origen central ('Mi Servidor')\r\n  y lo enlazamos con las IPs (target) y MACs de los \r\n  vecinos descubiertos en la red local.\r\n  */\r\n  'Mi Servidor' AS source,\r\n  ip AS target,\r\n  mac AS mac_address\r\nFROM vecinos_red",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "volkovlabs-echarts-panel",
+            "version": "7.2.4",
+            "spec": {
+              "options": {
+                "baidu": {
+                  "callback": "bmapReady",
+                  "key": ""
+                },
+                "editor": {
+                  "format": "auto"
+                },
+                "editorMode": "visual",
+                "gaode": {
+                  "key": "",
+                  "plugin": "AMap.Scale,AMap.ToolBar"
+                },
+                "getOption": "const series = context.panel.data.series.map((s) => {\n  const sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;\n  const sTime = s.fields.find((f) => f.type === 'time').values.buffer || s.fields.find((f) => f.type === 'time').values;\n  \n  return {\n    name: s.refId,\n    type: 'line',\n    showSymbol: false,\n    areaStyle: {\n      opacity: 0.1,\n    },\n    lineStyle: {\n      width: 1,\n    },\n    data: sData.map((d, i) => [sTime[i], d.toFixed(2)]),\n  };\n});\n\n/**\n * Enable Data Zoom by default\n */\nsetTimeout(() => context.panel.chart.dispatchAction({\n  type: 'takeGlobalCursor',\n  key: 'dataZoomSelect',\n  dataZoomSelectActive: true,\n}), 500);\n\n/**\n * Update Time Range on Zoom\n */\ncontext.panel.chart.on('datazoom', function (params) {\n  const startValue = params.batch[0]?.startValue;\n  const endValue = params.batch[0]?.endValue;\n  locationService.partial({ from: startValue, to: endValue });\n});\n\nreturn {\n  backgroundColor: 'transparent',\n  tooltip: {\n    trigger: 'axis',\n  },\n  legend: {\n    left: '0',\n    bottom: '0',\n    data: context.panel.data.series.map((s) => s.refId),\n    textStyle: {\n      color: 'rgba(128, 128, 128, .9)',\n    },\n  },\n  toolbox: {\n    feature: {\n      dataZoom: {\n        yAxisIndex: 'none',\n        icon: {\n          zoom: 'path://',\n          back: 'path://',\n        },\n      },\n      saveAsImage: {},\n    }\n  },\n  xAxis: {\n    type: 'time',\n  },\n  yAxis: {\n    type: 'value',\n    min: 'dataMin',\n  },\n  grid: {\n    left: '2%',\n    right: '2%',\n    top: '2%',\n    bottom: 24,\n    containLabel: true,\n  },\n  series,\n};",
+                "google": {
+                  "callback": "gmapReady",
+                  "key": ""
+                },
+                "map": "none",
+                "renderer": "canvas",
+                "themeEditor": {
+                  "config": "{}",
+                  "name": "default"
+                },
+                "visualEditor": {
+                  "code": "// ==========================================================\n// 1. CONTROL DE ERRORES\n// ==========================================================\n// Grafana a veces ejecuta este código antes de que la base de datos responda.\n// Si no hacemos esto, el panel daría un error rojo. \n// Si la serie de datos está vacía, muestra este mensaje y espera.\nif (!context.panel.data.series || context.panel.data.series.length === 0) {\n  return { title: { text: 'Buscando vecinos en la red...' } };\n}\n\n// ==========================================================\n// 2. EXTRACCIÓN DE DATOS DE GRAFANA\n// ==========================================================\n// Grafana nos pasa los datos del SQL en un objeto interno llamado 'context'.\nconst fields = context.panel.data.series[0].fields;\n\n// Buscamos las columnas que llamamos 'target' (IPs) y 'mac_address' (MACs) en nuestro SQL\n// y extraemos todos sus valores en forma de lista (Array).\nconst targets = fields.find(f => f.name === 'target').values;\nconst macs = fields.find(f => f.name === 'mac_address').values;\n\n// ==========================================================\n// 3. CREACIÓN DEL NODO CENTRAL\n// ==========================================================\n// Creamos la primera 'bola' del grafo. Tu máquina.\nlet nodes = [{\n  id: 'Mi Servidor',\n  name: 'Mi Servidor\\n 10.0.31.8', // \\n hace un salto de línea para que quede bonito\n  symbolSize: 65,                  // La hacemos más grande que el resto (65px)\n  itemStyle: {\n    color: '#007AFF',              // Azul principal\n    borderColor: '#0056b3',        // Borde azul oscuro\n    borderWidth: 2,\n    shadowBlur: 15,                // Le da un efecto de brillo neón\n    shadowColor: 'rgba(0,122,255,0.5)'\n  },\n  label: { show: true, position: 'bottom', color: '#fff', fontWeight: 'bold' }\n}];\n\nlet links = []; // Aquí guardaremos las \"cuerdas\" que unen los nodos\n\n// ==========================================================\n// 4. BUCLE DE CREACIÓN DE VECINOS\n// ==========================================================\n// Recorremos la lista de IPs que sacamos en el paso 2\nfor (let i = 0; i < targets.length; i++) {\n  let ip = targets[i];\n  let mac = macs[i];\n\n  // Control de duplicados: Si la IP ya está en nuestra lista de 'nodes', la ignoramos.\n  // Esto evita que se dibujen dos bolas para la misma IP si la BD tiene datos repetidos.\n  if (!nodes.find(n => n.id === ip)) {\n\n    // Añadimos la 'bola' del vecino (Color Verde)\n    nodes.push({\n      id: ip,\n      name: ip + '\\n' + mac, // Mostramos IP arriba y MAC abajo\n      symbolSize: 45,        // Más pequeña que el servidor central\n      itemStyle: { color: '#32D74B', borderColor: '#28A745', borderWidth: 2 },\n      label: { show: true, position: 'bottom', color: '#fff', fontSize: 11 }\n    });\n\n    // Creamos la conexión. \n    // Le decimos a ECharts que tire una línea desde 'Mi Servidor' hasta esta 'ip'\n    links.push({ source: 'Mi Servidor', target: ip });\n  }\n}\n\n// ==========================================================\n// 5. CONFIGURACIÓN DEL MOTOR DE FÍSICAS Y RENDERIZADO\n// ==========================================================\nreturn {\n  backgroundColor: 'transparent', // Fondo transparente\n  tooltip: {\n    formatter: '{b}' // {b} es una variable interna de ECharts que significa \"Muestra el nombre (name) de la bola al pasar el ratón\"\n  },\n  series: [{\n    type: 'graph',\n\n    // 'force' activa el motor de físicas de JavaScript\n    layout: 'force',\n    force: {\n      repulsion: 500,   // Como si fueran imanes del mismo polo. Cuanto mayor, más se alejan las bolas entre sí.\n      edgeLength: 150,  // La longitud ideal de la \"cuerda\" (link) que las une.\n      gravity: 0.1      // Atrae a todos los nodos suavemente hacia el centro de la pantalla para que no se salgan del marco.\n    },\n\n    roam: true,       // Permite al usuario hacer Zoom y arrastrar todo el mapa\n    draggable: true,  // Permite al usuario coger una bola con el ratón y moverla (física interactiva)\n\n    data: nodes,      // Le inyectamos el Array de bolas que hemos construido\n    links: links,     // Le inyectamos el Array de cuerdas\n\n    // Estilo de la cuerda: gris, grosor 2, ligeramente curva (0.2) y discontinua (dashed)\n    lineStyle: { color: '#8e94a1', width: 2, curveness: 0.2, type: 'dashed' }\n  }]\n};",
+                  "dataset": [],
+                  "series": []
+                }
+              },
+              "fieldConfig": {
+                "defaults": {},
+                "overrides": []
+              }
+            }
+          },
+          "transparent": true
+        }
+      },
+      "panel-16": {
+        "kind": "Panel",
+        "spec": {
+          "id": 16,
+          "title": "Rendimiento de Base de Datos",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT \r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  mysql_qps AS \"Queries por Segundo (QPS)\",\r\n  mysql_bytes_rx_ps AS \"Tráfico Recibido (KB/s)\",\r\n  mysql_bytes_tx_ps AS \"Tráfico Enviado (KB/s)\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "KBs",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "smooth",
+                    "lineWidth": 2,
+                    "pointSize": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Queries por Segundo (QPS)"
+                    },
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "ops"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "panel-17": {
+        "kind": "Panel",
+        "spec": {
+          "id": 17,
+          "title": "Distribución Puertos TCP",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT \r\n  puerto AS \"Puerto Local\",\r\n  estado AS \"Estado de la Conexión\",\r\n  cantidad AS \"Conexiones Totales\"\r\nFROM puertos_activos\r\nWHERE puerto < 32768\r\nORDER BY puerto ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "table",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "cellHeight": "sm",
+                "showHeader": true
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "mappings": [
+                    {
+                      "type": "value",
+                      "options": {
+                        "22": {
+                          "text": "22 (SSH)",
+                          "index": 0
+                        },
+                        "53": {
+                          "text": "53 (DNS)",
+                          "index": 5
+                        },
+                        "80": {
+                          "text": "80 (HTTP)",
+                          "index": 1
+                        },
+                        "443": {
+                          "text": "443 (HTTPS)",
+                          "index": 2
+                        },
+                        "3000": {
+                          "text": "3000 (Grafana)",
+                          "index": 3
+                        },
+                        "3306": {
+                          "text": "3306 (MySQL)",
+                          "index": 4
+                        },
+                        "8080": {
+                          "text": "8080 (HTTP)",
+                          "index": 6
+                        }
+                      }
+                    }
+                  ],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "custom": {
+                    "align": "auto",
+                    "cellOptions": {
+                      "type": "auto"
+                    },
+                    "footer": {
+                      "reducers": []
+                    },
+                    "inspect": false
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-2": {
+        "kind": "Panel",
+        "spec": {
+          "id": 2,
+          "title": "Uso de Memoria (RAM y Swap)",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "time_series",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  ram_usada_mb AS \"RAM Usada\",\r\n  swap_usada_mb AS \"Swap Usado\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "decmbytes",
+                  "max": 1962,
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 40,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-3": {
+        "kind": "Panel",
+        "spec": {
+          "id": 3,
+          "title": "Espacio Ocupado en Disco",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "time_series",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  disco_usado_porcentaje AS \"Disco Usado\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp DESC\r\nLIMIT 1",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "gauge",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "minVizHeight": 75,
+                "minVizWidth": 75,
+                "orientation": "auto",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showThresholdLabels": false,
+                "showThresholdMarkers": true,
+                "sizing": "auto"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "percent",
+                  "min": 0,
+                  "max": 100,
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 70,
+                        "color": "#EAB839"
+                      },
+                      {
+                        "value": 90,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "thresholds"
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-4": {
+        "kind": "Panel",
+        "spec": {
+          "id": 4,
+          "title": "Procesos en Ejecución",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "time_series",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  num_procesos AS \"Procesos Activos\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "none",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 200,
+                        "color": "#EAB839"
+                      },
+                      {
+                        "value": 250,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "thresholds"
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-5": {
+        "kind": "Panel",
+        "spec": {
+          "id": 5,
+          "title": "Tráfico de Red",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "time_series",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  /*\r\n  Como los bytes enviados y recibidos que devuelve ps util son globales desde que se encendió el \r\n  pc. Usamos lag para obtener el valor que tenía la columna en la fila anterior para ver en \r\n  cuanto han incrementado y mostrar ese dato, ordenandolos por fecha antes\r\n  */\r\n  red_bytes_enviados - LAG(red_bytes_enviados) OVER (ORDER BY timestamp) AS \"Bytes Enviados\",\r\n  red_bytes_recibidos - LAG(red_bytes_recibidos) OVER (ORDER BY timestamp) AS \"Bytes Recibidos\"\r\nFROM registro_metricas\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "bps",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "axisSoftMin": 0,
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 20,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "smooth",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
+                    "lineWidth": 2,
+                    "pointSize": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-6": {
+        "kind": "Panel",
+        "spec": {
+          "id": 6,
+          "title": "Carga del Sistema",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "time_series",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\r\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\r\n  load_1m AS \"Carga (1 min)\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "timeseries",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "short",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "blue"
+                      },
+                      {
+                        "value": 80,
+                        "color": "dark-purple"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "continuous-BlPu"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-8": {
+        "kind": "Panel",
+        "spec": {
+          "id": 8,
+          "title": "Numero Operaciones en Disco",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\n  UNIX_TIMESTAMP(timestamp) AS \"time\",\n  /*\n  Como las escrituras y lecturas que devuelve ps util son globales desde que se encendió el pc\n  Usamos lag para obtener el valor que tenía la columna en la fila anterior para ver en cuanto\n  han incrementado las operaciones y mostrar ese dato, ordenandolos por fecha antes\n  */\n  disco_count_read - LAG(disco_count_read) OVER (ORDER BY timestamp) AS \"Lecturas\",\n  disco_count_write - LAG(disco_count_write) OVER (ORDER BY timestamp) AS \"Escrituras\"\nFROM registro_metricas\nWHERE $__timeFilter(timestamp)\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        },
+                        "table": "registro_metricas"
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "ops",
+                  "thresholds": {
+                    "mode": "percentage",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 70,
+                        "color": "orange"
+                      },
+                      {
+                        "value": 85,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "thresholds"
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      },
+      "panel-9": {
+        "kind": "Panel",
+        "spec": {
+          "id": 9,
+          "title": "Distribución Estadística de Carga de CPU",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "mysql",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "ffdjey4xmlptsa"
+                      },
+                      "spec": {
+                        "dataset": "ESI_Practica1",
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\r\n  timestamp AS \"time\",\r\n  cpu_percent AS \"Uso CPU\"\r\nFROM registro_metricas\r\nWHERE $__timeFilter(timestamp)\r\nORDER BY timestamp ASC",
+                        "sql": {
+                          "columns": [
+                            {
+                              "parameters": [],
+                              "type": "function"
+                            }
+                          ],
+                          "groupBy": [
+                            {
+                              "property": {
+                                "type": "string"
+                              },
+                              "type": "groupBy"
+                            }
+                          ],
+                          "limit": 50
+                        }
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "histogram",
+            "version": "12.4.1",
+            "spec": {
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "percent",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "green"
+                      },
+                      {
+                        "value": 80,
+                        "color": "red"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "fillOpacity": 80,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineWidth": 1,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    }
+                  }
+                },
+                "overrides": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "layout": {
+      "kind": "GridLayout",
+      "spec": {
+        "items": [
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 0,
+              "y": 0,
+              "width": 11,
+              "height": 7,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-9"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 11,
+              "y": 0,
+              "width": 11,
+              "height": 7,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-1"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 0,
+              "y": 7,
+              "width": 6,
+              "height": 7,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-6"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 6,
+              "y": 7,
+              "width": 7,
+              "height": 7,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-8"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 13,
+              "y": 7,
+              "width": 5,
+              "height": 7,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-3"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 18,
+              "y": 7,
+              "width": 4,
+              "height": 7,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-11"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 0,
+              "y": 14,
+              "width": 4,
+              "height": 8,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-4"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 4,
+              "y": 14,
+              "width": 8,
+              "height": 8,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-2"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 12,
+              "y": 14,
+              "width": 10,
+              "height": 8,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-16"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 0,
+              "y": 22,
+              "width": 11,
+              "height": 8,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-5"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 11,
+              "y": 22,
+              "width": 11,
+              "height": 8,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-13"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 0,
+              "y": 30,
+              "width": 6,
+              "height": 10,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-14"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 6,
+              "y": 30,
+              "width": 16,
+              "height": 10,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-17"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 0,
+              "y": 40,
+              "width": 11,
+              "height": 16,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-15"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 11,
+              "y": 40,
+              "width": 11,
+              "height": 16,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-12"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "links": [],
+    "liveNow": false,
+    "preload": false,
+    "tags": [],
+    "timeSettings": {
+      "timezone": "browser",
+      "from": "now-1h",
+      "to": "now",
+      "autoRefresh": "",
+      "autoRefreshIntervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "hideTimepicker": false,
+      "fiscalYearStartMonth": 0
+    },
+    "title": "Practica 1",
+    "variables": []
+  }
+}
