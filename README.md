@@ -38,7 +38,7 @@
 ```text
 Linux-Observability-Agent
  ┣ 📂 assets/
- ┃ ┣ 🖼️ dashboard.png
+ ┃ ┗ 🖼️ dashboard.png
  ┣ 📂 docs/
  ┃ ┣ 📜 presentation_slides.pdf
  ┃ ┗ 📜 technical_report.pdf
@@ -55,33 +55,52 @@ Linux-Observability-Agent
 
 ---
 
-## Getting Started
+## Getting Started & Reproduction Guide
 
-### 1. Database & Environment Setup
-Ensure MariaDB/MySQL is installed. The agent requires a database named `ESI_Practica1` and a user with write privileges:
+Follow these steps to deploy the telemetry agent and replicate this observability stack on your own Linux environment (Ubuntu/Debian recommended).
 
-```sql
-CREATE DATABASE ESI_Practica1;
--- Refer to the technical_report.pdf in /docs for the exact SQL Table schemas.
+### Prerequisites
+Ensure you have the following installed on your Linux machine:
+* Python 3 & `pip`
+* MariaDB or MySQL Server
+* Grafana
+
+### 1. Clone the Repository
+Download the project to your local machine:
+```bash
+git clone [https://github.com/imoroc/Linux-Observability-Agent.git](https://github.com/imoroc/Linux-Observability-Agent.git)
+cd Linux-Observability-Agent
 ```
 
-### 2. Deploying the Telemetry Agent
-Install the required Python dependencies:
+### 2. Database Setup
+Log into your MariaDB/MySQL console as root (`sudo mysql -u root -p`) and set up the database and the required telemetry user:
+```sql
+CREATE DATABASE ESI_Practica1;
+CREATE USER 'elliot'@'localhost' IDENTIFIED BY '2Moronipa.';
+GRANT ALL PRIVILEGES ON ESI_Practica1.* TO 'elliot'@'localhost';
+FLUSH PRIVILEGES;
+```
+*Note: The exact SQL scripts to create the tables (`registro_metricas`, `arbol_procesos`, `vecinos_red`, `puertos_activos`) are documented on page 3 of the `docs/technical_report.pdf`.*
 
+### 3. Install Agent Dependencies
+Install the required Python libraries for OS inspection and database connection:
 ```bash
+sudo apt update
 pip3 install psutil mysql-connector-python
 ```
 
-To run the agent as a native Linux service, map it to systemd (optional but recommended for production-like environments):
-
+### 4. Run the Telemetry Agent
+You can test the agent manually in your terminal to verify data ingestion:
 ```bash
-sudo cp src/system_monitor.py /opt/
-sudo systemctl enable monitor.service
-sudo systemctl start monitor.service
+python3 src/system_monitor.py
 ```
+*(For a production-like deployment, configure it as a background daemon using `systemd`. Instructions for the `monitor.service` configuration are detailed in the `docs/technical_report.pdf`).*
 
-### 3. Visualizing Data (Grafana)
-Connect your Grafana instance to the MariaDB database. The telemetry agent updates the historical tables (Time-Series) and truncates the dynamic tables (for ECharts Network Topology) every 60 seconds.
+### 5. Visualizing Data (Grafana)
+1. Open your Grafana web interface.
+2. Go to **Connections > Data Sources** and add **MySQL**.
+3. Point it to `localhost:3306`, Database: `ESI_Practica1`, User: `elliot`, Password: `2Moronipa.`.
+4. The telemetry agent updates the historical tables (Time-Series) and truncates the dynamic tables (for ECharts Network Topology) every 60 seconds.
 
 ---
 
@@ -89,8 +108,7 @@ Connect your Grafana instance to the MariaDB database. The telemetry agent updat
 
 You can validate the resilience of the observability stack and trigger visual spikes in the Grafana dashboards by executing the stress testing suite.
 
-Before running, grant execution permissions:
-
+Before running, grant execution permissions to the scripts:
 ```bash
 cd stress-tests/
 chmod +x *.sh
@@ -98,7 +116,6 @@ chmod +x *.sh
 
 **Example: Simulating a Database Concurrency Overload**
 This will simulate 50 concurrent users blasting the database with SQL queries, spiking the QPS (Queries Per Second) panel.
-
 ```bash
 ./stress_mysql.sh
 [*] Preparing MySQL/MariaDB stress test...
