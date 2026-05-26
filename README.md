@@ -22,7 +22,7 @@
 
 ---
 
-## 🏗️ Architecture & Key Features
+## Architecture & Key Features
 
 * **Custom `systemd` Daemon:** The Python agent (`system_monitor.py`) runs as a highly available background service, ensuring automated recovery and continuous telemetry data ingestion into a relational database.
 * **Deep OS & Hardware Metrics:** Tracks precise CPU/Core loads, RAM/Swap usage boundaries, Disk I/O operations, and system load averages (`psutil`).
@@ -33,7 +33,7 @@
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Linux-Observability-Agent
