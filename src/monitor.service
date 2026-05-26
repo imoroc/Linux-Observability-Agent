@@ -1,0 +1,21 @@
+[Unit]
+Description=Monitor de sistema
+After=network.target mariadb.service
+
+[Service]
+Type=simple
+
+# EDIT: Replace with your Linux username (e.g. User=john)
+User=YOUR_USER
+
+# EDIT: Replace with the absolute path to the cloned repository's src/ folder
+WorkingDirectory=/path/to/Linux-Observability-Agent/src
+
+# EDIT: Replace with the same path as above
+ExecStart=/usr/bin/python3 /path/to/Linux-Observability-Agent/src/system_monitor.py
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
